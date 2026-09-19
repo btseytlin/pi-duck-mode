@@ -58,12 +58,5 @@ That part is up to you.
 The duck TPS number is meaningless.
 Duck sends all 7 tokens in one chunk, so the time between first and last token is near zero.
 
-Run it yourself:
-
-```sh
-node bench/bench.mjs duck 10
-node bench/bench.mjs vanilla 5 <provider/model>
-```
-
 The vanilla run makes real model calls.
 Both runs use `--mode json -p --thinking off` with no tools, extensions or skills.
