@@ -56,6 +56,34 @@ Duck mode is about 1900 times faster to first token.
 It also does not write a binary search.
 That part is up to you.
 
+The duck TPS number is meaningless.
+Duck sends all 7 tokens in one chunk, so the time between first and last token is near zero.
+
+### Vanilla pi runs
+
+| run | TTFT | tokens | TPS |
+| --- | --- | --- | --- |
+| 1 | 2215 ms | 101 | 29 |
+| 2 | 2503 ms | 95 | 29 |
+| 3 | 2509 ms | 99 | 30 |
+| 4 | 2003 ms | 96 | 30 |
+| 5 | 4132 ms | 102 | 29 |
+
+### Duck mode runs
+
+| run | TTFT | tokens | TPS |
+| --- | --- | --- | --- |
+| 1 | 1.1 ms | 7 | 23500 |
+| 2 | 1.3 ms | 7 | 20038 |
+| 3 | 1.3 ms | 7 | 20634 |
+| 4 | 1.3 ms | 7 | 24114 |
+| 5 | 1.2 ms | 7 | 23166 |
+| 6 | 1.0 ms | 7 | 24739 |
+| 7 | 2.2 ms | 7 | 14800 |
+| 8 | 2.1 ms | 7 | 52060 |
+| 9 | 1.4 ms | 7 | 19882 |
+| 10 | 1.3 ms | 7 | 21320 |
+
 Run it yourself:
 
 ```sh
