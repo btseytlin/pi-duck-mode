@@ -3,4 +3,5 @@
 dir=$(cd "$(dirname "$0")" && pwd)
 export PI_CODING_AGENT_DIR="$dir/agent"
 export PI_OFFLINE=1
+export DUCK_MODE=1
 exec pi --no-session --no-tools --no-extensions --no-skills --no-prompt-templates --no-context-files -e "$dir/extensions/duck.ts" "$@"
