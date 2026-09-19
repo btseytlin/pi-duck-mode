@@ -1,1 +1,3 @@
 tmp/
+agent/*
+!agent/settings.json

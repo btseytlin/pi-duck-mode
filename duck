@@ -1,4 +1,6 @@
 #!/bin/sh
-# Duck mode: pi with no tools, no skills, no other extensions, and no LLM calls.
+# Duck mode: pi with an isolated config, no tools, no other extensions, and no real LLM.
 dir=$(cd "$(dirname "$0")" && pwd)
+export PI_CODING_AGENT_DIR="$dir/agent"
+export PI_OFFLINE=1
 exec pi --no-session --no-tools --no-extensions --no-skills --no-prompt-templates --no-context-files -e "$dir/extensions/duck.ts" "$@"
