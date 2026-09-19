@@ -1,0 +1,4 @@
+#!/bin/sh
+# Duck mode: pi with no tools, no skills, no other extensions, and no LLM calls.
+dir=$(cd "$(dirname "$0")" && pwd)
+exec pi --no-session --no-tools --no-extensions --no-skills --no-prompt-templates --no-context-files -e "$dir/extensions/duck.ts" "$@"
