@@ -1,5 +1,5 @@
 {
-  "name": "pi-duck-mode",
+  "name": "@btseytlin/pi-duck-mode",
   "version": "0.1.0",
   "description": "pi extension to spend 14x less tokens and achieve 798x more TPS",
   "keywords": ["pi-package"],

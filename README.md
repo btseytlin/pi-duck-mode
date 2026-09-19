@@ -16,7 +16,7 @@
 ## Installation
 
 ```sh
-pi install npm:pi-duck-mode
+pi install npm:@btseytlin/pi-duck-mode
 ```
 
 Or from git:
