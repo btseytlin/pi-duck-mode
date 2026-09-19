@@ -12,11 +12,8 @@ const DUCK = [
 	" `---'",
 ];
 
-const blank = { render: () => [], invalidate: () => {} };
-
 export default function (pi: ExtensionAPI) {
 	let active = false;
-	// Undefined when pi was started with DUCK_MODE=1, so there is no normal mode to return to.
 	let saved: { model: any; thinking: any; tools: string[]; editor: any } | undefined;
 
 	const registerDuckProvider = () =>
@@ -67,13 +64,11 @@ export default function (pi: ExtensionAPI) {
 			},
 		});
 
-	// The footer is only blanked in a ./duck session. In a toggled session another extension may own it, and pi cannot hand it back.
 	const applyUi = (ctx: ExtensionContext) => {
 		ctx.ui.setHeader((_tui, theme) => ({
 			render: () => ["", ...DUCK.map((line) => "  " + theme.fg("warning", line)), ""],
 			invalidate: () => {},
 		}));
-		if (process.env.DUCK_MODE === "1") ctx.ui.setFooter(() => blank);
 
 		ctx.ui.setEditorComponent((tui, theme, keybindings) => {
 			const editor = new CustomEditor(tui, theme, keybindings);
@@ -130,10 +125,7 @@ export default function (pi: ExtensionAPI) {
 	};
 
 	const disable = async (ctx: ExtensionContext) => {
-		if (!saved) {
-			ctx.ui.notify("This session started in duck mode. Use /quit to leave.", "warning");
-			return;
-		}
+		if (!saved) throw new Error("duck mode is active but nothing was saved");
 		const { model, thinking, tools, editor } = saved;
 		if (model && !(await pi.setModel(model))) throw new Error("could not restore the previous model");
 		pi.setThinkingLevel(thinking);
@@ -154,15 +146,7 @@ export default function (pi: ExtensionAPI) {
 		},
 	});
 
-	if (process.env.DUCK_MODE === "1") registerDuckProvider();
-
 	pi.on("session_start", async (_event, ctx) => {
-		if (process.env.DUCK_MODE === "1" && !active) {
-			pi.setActiveTools([]);
-			applyUi(ctx);
-			active = true;
-		} else if (active) {
-			applyUi(ctx);
-		}
+		if (active) applyUi(ctx);
 	});
 }

@@ -1,8 +1,0 @@
-{
-  "theme": "dark",
-  "quietStartup": true,
-  "defaultProvider": "duck",
-  "defaultModel": "duck",
-  "defaultThinkingLevel": "off",
-  "lastChangelogVersion": "0.85.1"
-}

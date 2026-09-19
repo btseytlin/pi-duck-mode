@@ -1,11 +1,10 @@
 # pi-duck-mode
 
-A pi extension for a coding harness with no LLM.
+Pi extension that makes pi 798x faster in terms of TPS and consumes 14x less tokens. It also prevents developer skill atrophy. 
 
-Every message gets the same reply: "Great, go ahead and make it!"
+Start pi and type `/duck`. Now you are in duck mode. In this mode there is no LLM. Every message gets the same reply: "Great, go ahead and make it!" Type your prompt, then write the code.
 
-The reply streams like a normal model reply.
-It has zero latency, zero cost and zero hallucinations.
+Zero hallucinations.
 
 ## Install
 
@@ -13,35 +12,11 @@ It has zero latency, zero cost and zero hallucinations.
 pi install git:github.com/<user>/pi-duck-mode
 ```
 
-Start pi and type `/duck`.
-Type `/duck` again to go back to your normal session.
-
-## Always-on duck
-
-Clone the repo and run the launcher.
-
-```sh
-git clone https://github.com/<user>/pi-duck-mode
-cd pi-duck-mode
-./duck
-```
-
-The launcher uses its own empty config.
-It loads no other extensions, tools, skills or context files.
-Use `/quit`, `/exit` or Ctrl+C to leave.
-
-## What duck mode turns off
-
-Slash commands, hotkeys, model switching, tools and autocomplete.
-Only `/duck`, `/quit` and `/exit` still work.
+Type `/duck` to enter or exit duck mode.
 
 ## Benchmark
 
 Prompt: "Write a binary search function in Python. Return the index of the target, or -1."
-
-Time to first token (TTFT) is the time from prompt accepted to first text delta.
-Tokens per second (TPS) is tokens divided by the time from first to last delta.
-Tokens are estimated as characters divided by 4 in both modes.
 
 | | vanilla pi | duck mode |
 | --- | --- | --- |
@@ -51,12 +26,3 @@ Tokens are estimated as characters divided by 4 in both modes.
 | reply tokens (median) | 99 | 7 |
 | total time (median) | 5748 ms | 1.6 ms |
 
-Duck mode is about 1900 times faster to first token.
-It also does not write a binary search.
-That part is up to you.
-
-The duck TPS number is meaningless.
-Duck sends all 7 tokens in one chunk, so the time between first and last token is near zero.
-
-The vanilla run makes real model calls.
-Both runs use `--mode json -p --thinking off` with no tools, extensions or skills.
