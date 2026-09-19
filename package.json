@@ -1,10 +1,24 @@
 {
   "name": "pi-duck-mode",
   "version": "0.1.0",
-  "description": "A pi extension for a coding harness with no LLM.",
+  "description": "pi extension to spend 14x less tokens and achieve 798x more TPS",
   "keywords": ["pi-package"],
   "license": "MIT",
+  "author": "boris",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btseytlin/pi-duck-mode.git"
+  },
+  "homepage": "https://github.com/btseytlin/pi-duck-mode#readme",
+  "bugs": "https://github.com/btseytlin/pi-duck-mode/issues",
+  "files": ["extensions", "assets", "LICENSE"],
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  },
   "pi": {
-    "extensions": ["./extensions"]
+    "extensions": ["./extensions"],
+    "image": "https://raw.githubusercontent.com/btseytlin/pi-duck-mode/main/assets/header.png"
   }
 }
