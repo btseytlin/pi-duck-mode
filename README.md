@@ -16,7 +16,7 @@
 ## Installation
 
 ```sh
-pi install git:github.com/<user>/pi-duck-mode
+pi install git:github.com/btseytlin/pi-duck-mode
 ```
 
 Type `/duck` to enter duck mode. In duck mode, no LLM calls are made and every reply is "Great, go ahead and make it!". Type your prompt, then write the code.
