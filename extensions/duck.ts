@@ -67,12 +67,13 @@ export default function (pi: ExtensionAPI) {
 			},
 		});
 
+	// The footer is only blanked in a ./duck session. In a toggled session another extension may own it, and pi cannot hand it back.
 	const applyUi = (ctx: ExtensionContext) => {
 		ctx.ui.setHeader((_tui, theme) => ({
 			render: () => ["", ...DUCK.map((line) => "  " + theme.fg("warning", line)), ""],
 			invalidate: () => {},
 		}));
-		ctx.ui.setFooter(() => blank);
+		if (process.env.DUCK_MODE === "1") ctx.ui.setFooter(() => blank);
 
 		ctx.ui.setEditorComponent((tui, theme, keybindings) => {
 			const editor = new CustomEditor(tui, theme, keybindings);
@@ -84,7 +85,7 @@ export default function (pi: ExtensionAPI) {
 					const user = text.trim();
 					if (!user) return;
 					editor.setText("");
-					if (user === "/exit") {
+					if (user === "/exit" || user === "/quit") {
 						ctx.shutdown();
 						return;
 					}
@@ -130,7 +131,7 @@ export default function (pi: ExtensionAPI) {
 
 	const disable = async (ctx: ExtensionContext) => {
 		if (!saved) {
-			ctx.ui.notify("This session started in duck mode. Use /exit to leave.", "warning");
+			ctx.ui.notify("This session started in duck mode. Use /quit to leave.", "warning");
 			return;
 		}
 		const { model, thinking, tools, editor } = saved;
@@ -138,7 +139,6 @@ export default function (pi: ExtensionAPI) {
 		pi.setThinkingLevel(thinking);
 		pi.setActiveTools(tools);
 		ctx.ui.setHeader(undefined);
-		ctx.ui.setFooter(undefined);
 		ctx.ui.setEditorComponent(editor);
 		pi.unregisterProvider(PROVIDER);
 		saved = undefined;
