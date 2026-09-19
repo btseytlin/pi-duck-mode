@@ -1,0 +1,10 @@
+{
+  "name": "pi-duck-mode",
+  "version": "0.1.0",
+  "description": "A pi extension for a coding harness with no LLM.",
+  "keywords": ["pi-package"],
+  "license": "MIT",
+  "pi": {
+    "extensions": ["./extensions"]
+  }
+}
