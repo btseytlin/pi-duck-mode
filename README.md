@@ -8,7 +8,7 @@ ___( o)>
 </div>
 
 <p align="center">
-  <strong>The zero-token coding agent. Cuts 100% of the LLM output your agent reads.</strong>
+  <strong>pi extension to spend 14x less tokens and achieve 798x more TPS</strong>
 </p>
 
 <p align="center">
@@ -29,9 +29,7 @@ ___( o)>
 
 ---
 
-Pi extension that makes pi 798x faster in terms of TPS and consumes 14x less tokens. It also prevents developer skill atrophy.
-
-duck replaces your LLM with a duck. Single TypeScript file, 1 supported command, <2ms overhead. Zero hallucinations.
+duck replaces your LLM with a duck. Single TypeScript file, 1 supported command, <2ms overhead. Zero hallucinations. It also prevents developer skill atrophy.
 
 > **Not affiliated.** This project is not affiliated with, endorsed by or connected to rtk-ai/rtk, DuckDB or any other project named rtk or duck. Any resemblance is intentional.
 
