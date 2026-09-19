@@ -5,6 +5,13 @@ import { Editor, matchesKey } from "@earendil-works/pi-tui";
 const REPLY = "Great, go ahead and make it!";
 const PROVIDER = "duck";
 
+const DUCK = [
+	"    __",
+	"___( o)>",
+	"\\ <_. )",
+	" `---'",
+];
+
 const blank = { render: () => [], invalidate: () => {} };
 
 export default function (pi: ExtensionAPI) {
@@ -57,7 +64,10 @@ export default function (pi: ExtensionAPI) {
 
 	pi.on("session_start", (_event, ctx) => {
 		pi.setActiveTools([]);
-		ctx.ui.setHeader(() => blank);
+		ctx.ui.setHeader((_tui, theme) => ({
+			render: () => ["", ...DUCK.map((line) => "  " + theme.fg("warning", line)), ""],
+			invalidate: () => {},
+		}));
 		ctx.ui.setFooter(() => blank);
 
 		ctx.ui.setEditorComponent((tui, theme, keybindings) => {
