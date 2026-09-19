@@ -1,20 +1,15 @@
-```
-    __
-___( o)>
-\ <_. )
- `---'
-
-```
+![duck mode](assets/header.png)
 
 **pi extension to spend 14x less tokens and achieve 798x more TPS**
 
 ![build](https://img.shields.io/badge/build-passing-brightgreen)
 [![pi extension](https://img.shields.io/badge/pi-extension-lightgrey)](https://pi.dev)
 [![TTFT](https://img.shields.io/badge/TTFT-1.3ms-brightgreen)](#benchmark)
+[![TPS](https://img.shields.io/badge/TPS-23166-brightgreen)](#benchmark)
 [![powered by duck](https://img.shields.io/badge/powered%20by-duck-yellow?logo=duckdb&logoColor=white)](#what-duck-does)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-[Install](#installation) • [What duck does](#what-duck-does) • [How it works](#how-it-works) • [Benchmark](#benchmark) • [Commands](#commands)
+[Install](#installation) • [What duck does](#what-duck-does) • [How it works](#how-it-works) • [Benchmark](#benchmark) • [Commands](#commands) • [Troubleshooting](#)
 
 ---
 
