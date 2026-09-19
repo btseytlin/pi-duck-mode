@@ -70,6 +70,10 @@ export default function (pi: ExtensionAPI) {
 					const user = text.trim();
 					if (!user) return;
 					editor.setText("");
+					if (user === "/exit") {
+						ctx.shutdown();
+						return;
+					}
 					pi.sendUserMessage(user);
 				},
 			});
